@@ -1,0 +1,196 @@
+% 注意：请使用XeLaTex编译器进行编译，否则可能会出现报错
+\documentclass[fontset=ubuntu]{article}
+\usepackage{graphicx}  % 插入图片所需
+\usepackage{ctex}      % 汉字支持
+\usepackage{amsmath}   % 数学公式
+\usepackage{amssymb}   % 更多公式符号
+\usepackage[dvipsnames]{xcolor}    % 颜色支持
+\usepackage{mdframed}  % 文本框
+
+% ########## 定理环境 start ####################################
+% 边框默认格式
+\mdfsetup{linewidth=1pt,linecolor=gray}
+\mdfsetup{backgroundcolor=gray!10}
+\mdfsetup{shadow=true}
+
+% 定义
+\newcounter{defnCounter}[section]
+\setcounter{defnCounter}{0}
+\newenvironment{defn}[1][]
+{
+    \refstepcounter{defnCounter}
+    \begin{mdframed}[backgroundcolor=cyan!20]
+    定义\thesection.\thedefnCounter #1：
+}
+{
+    \end{mdframed}
+}
+
+% 定理、引理、推论、命题和准则
+\newcounter{thmCounter}[section]
+\setcounter{thmCounter}{0}
+\newenvironment{thm}[1][]
+{
+    \refstepcounter{thmCounter}
+    \begin{mdframed}[backgroundcolor=yellow!20]
+    定理\thesection.\thethmCounter #1：
+}
+{
+    \end{mdframed}
+}
+
+\newenvironment{lemma}[1][]
+{
+    \refstepcounter{thmCounter}
+    \begin{mdframed}
+    引理\thesection.\thethmCounter #1：
+}
+{
+    \end{mdframed}
+}
+
+\newenvironment{corollary}[1][]
+{
+    \refstepcounter{thmCounter}
+    \begin{mdframed}
+    推论\thesection.\thethmCounter #1：
+}
+{
+    \end{mdframed}
+}
+
+\newenvironment{criterion}[1][]
+{
+    \refstepcounter{thmCounter}
+    \begin{mdframed}
+    准则\thesection.\thethmCounter #1：
+}
+{
+    \end{mdframed}
+}
+
+\newenvironment{proposition}[1][]
+{
+    \refstepcounter{thmCounter}
+    \begin{mdframed}[backgroundcolor=yellow!20]
+    命题\thesection.\thethmCounter #1：
+}
+{
+    \end{mdframed}
+}
+
+% 证明和解
+\newenvironment{proof}
+{
+    \begin{mdframed}
+    证明：
+}
+{
+    \end{mdframed}
+}
+
+\newenvironment{solution}
+{
+    \begin{mdframed}
+    解：
+}
+{
+    \end{mdframed}
+}
+
+\newenvironment{rmk}
+{\begin{mdframed}
+    注：
+}
+{
+    \end{mdframed}
+}
+
+% 例
+\newcounter{exampleCounter}[section]
+\setcounter{exampleCounter}{0}
+\newenvironment{example}[1][]
+{
+    \begin{mdframed}[backgroundcolor=Emerald!20]
+    \refstepcounter{exampleCounter}
+    例\thesection.\theexampleCounter #1：
+}
+{
+    \end{mdframed}
+}
+
+% ######### 定理环境 end  #####################################
+
+\title{数学笔记模板}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{第一个部分}
+\begin{defn}[（在这里添加额外字符）]
+    这是一条定义
+\end{defn}
+\begin{defn}
+    这是一条定义
+\end{defn}
+\begin{thm}
+    这是一条定理
+\end{thm}
+\begin{lemma}
+    这是一条引理
+\end{lemma}
+\begin{corollary}
+    这是一条推论
+\end{corollary}
+\begin{proposition}
+    这是一个命题
+\end{proposition}
+\begin{example}
+    这是一个例子
+\end{example}
+\begin{proof}
+    这是一个证明
+\end{proof}
+\begin{solution}
+    这是一个解
+\end{solution}
+\begin{rmk}
+    这是一个注
+\end{rmk}
+
+\section{第二个部分}
+\begin{defn}[（在这里添加额外字符）]
+    这是一条定义
+\end{defn}
+\begin{defn}
+    这是一条定义
+\end{defn}
+\begin{thm}
+    这是一条定理
+\end{thm}
+\begin{lemma}
+    这是一条引理
+\end{lemma}
+\begin{corollary}
+    这是一条推论
+\end{corollary}
+\begin{proposition}
+    这是一个命题
+\end{proposition}
+\begin{example}
+    这是一个例子
+\end{example}
+\begin{proof}
+    这是一个证明
+\end{proof}
+\begin{solution}
+    这是一个解
+\end{solution}
+\begin{rmk}
+    这是一个注
+\end{rmk}
+
+\end{document}
