@@ -1,17 +1,16 @@
 % 注意：请使用XeLaTex编译器进行编译，否则可能会出现报错
-\documentclass[fontset=ubuntu]{article}
+\documentclass[fontset=ubuntu,12pt]{article}
+\usepackage[margin=1in]{geometry} %页边距设置
+\usepackage{setspace}
 \usepackage{graphicx}  % 插入图片所需
 \usepackage{ctex}      % 汉字支持
 \usepackage{amsmath}   % 数学公式
 \usepackage{amssymb}   % 更多公式符号
 \usepackage[dvipsnames]{xcolor}    % 颜色支持
-\usepackage{mdframed}  % 文本框
+\usepackage[breakable]{tcolorbox} % 文本框
 
 % ########## 定理环境 start ####################################
 % 边框默认格式
-\mdfsetup{linewidth=1pt,linecolor=gray}
-\mdfsetup{backgroundcolor=gray!10}
-\mdfsetup{shadow=true}
 
 % 定义
 \newcounter{defnCounter}[section]
@@ -19,11 +18,11 @@
 \newenvironment{defn}[1][]
 {
     \refstepcounter{defnCounter}
-    \begin{mdframed}[backgroundcolor=cyan!20]
-    定义\thesection.\thedefnCounter #1：
+    \begin{tcolorbox}[colback=cyan!10!white,colframe=black!30!white]
+    \textbf{定义\thesection.\thedefnCounter #1：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 % 定理、引理、推论、命题和准则
@@ -32,78 +31,79 @@
 \newenvironment{thm}[1][]
 {
     \refstepcounter{thmCounter}
-    \begin{mdframed}[backgroundcolor=yellow!20]
-    定理\thesection.\thethmCounter #1：
+    \begin{tcolorbox}[colback=yellow!10!white,colframe=black!30!white]
+    \textbf{定理\thesection.\thethmCounter #1：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 \newenvironment{lemma}[1][]
 {
     \refstepcounter{thmCounter}
-    \begin{mdframed}
-    引理\thesection.\thethmCounter #1：
+    \begin{tcolorbox}[colback=black!3!white,colframe=black!30!white]
+    \textbf{引理\thesection.\thethmCounter #1：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 \newenvironment{corollary}[1][]
 {
     \refstepcounter{thmCounter}
-    \begin{mdframed}
-    推论\thesection.\thethmCounter #1：
+    \begin{tcolorbox}[colback=black!3!white,colframe=black!30!white]
+    \textbf{推论\thesection.\thethmCounter #1：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 \newenvironment{criterion}[1][]
 {
     \refstepcounter{thmCounter}
-    \begin{mdframed}
-    准则\thesection.\thethmCounter #1：
+    \begin{tcolorbox}[colback=black!3!white,colframe=black!30!white]
+    \textbf{准则\thesection.\thethmCounter #1：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 \newenvironment{proposition}[1][]
 {
     \refstepcounter{thmCounter}
-    \begin{mdframed}[backgroundcolor=yellow!20]
-    命题\thesection.\thethmCounter #1：
+    \begin{tcolorbox}[colback=yellow!10!white,colframe=black!30!white]
+    \textbf{命题\thesection.\thethmCounter #1：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 % 证明和解
 \newenvironment{proof}
 {
-    \begin{mdframed}
-    证明：
+    \begin{tcolorbox}[colback=black!3!white,colframe=black!30!white]
+    \textbf{证明：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 \newenvironment{solution}
 {
-    \begin{mdframed}
-    解：
+    \begin{tcolorbox}[colback=black!3!white,colframe=black!30!white]
+    \textbf{解：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 \newenvironment{rmk}
-{\begin{mdframed}
-    注：
+{
+    \begin{tcolorbox}[colback=black!3!white,colframe=black!30!white]
+    \textbf{注：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 % 例
@@ -111,12 +111,12 @@
 \setcounter{exampleCounter}{0}
 \newenvironment{example}[1][]
 {
-    \begin{mdframed}[backgroundcolor=Emerald!20]
+    \begin{tcolorbox}[colback=Emerald!20!white,colframe=black!30!white]
     \refstepcounter{exampleCounter}
-    例\thesection.\theexampleCounter #1：
+    \textbf{例\thesection.\theexampleCounter #1：}
 }
 {
-    \end{mdframed}
+    \end{tcolorbox}
 }
 
 % ######### 定理环境 end  #####################################
